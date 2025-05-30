@@ -7,7 +7,52 @@
   <link rel="icon" href="./favicon.ico" />
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" type="module"></script>
-  <script src="conexiónfirebase.js" type="module"></script>
+<script type="module">
+  // Importar desde CDN
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyBjPXZz-P-p72J815hM02am4AbvtfGf5z0",
+  authDomain: "rickandmorty2-37c3b.firebaseapp.com",
+  projectId: "rickandmorty2-37c3b",
+  storageBucket: "rickandmorty2-37c3b.firebasestorage.app",
+  messagingSenderId: "1095794527785",
+  appId: "1:1095794527785:web:87b01039813bc2ff161638"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('register-form');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nombre = form.nombre.value;
+      const apellido = form.apellido.value;
+      const email = form.email.value;
+      const password = form.password.value;
+      const usuario = form.usuario.value;
+      const universo = form.universo.value;
+
+      try {
+        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+        await setDoc(doc(db, 'usuarios', userCred.user.uid), {
+          nombre, apellido, email, usuario, universo
+        });
+        alert("¡Registro exitoso!");
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        alert("Error al registrar: " + err.message);
+      }
+    });
+  });
+  </script>
 </head>
 <body>
   <!-- Navegación principal -->
@@ -89,14 +134,6 @@
     <button>Favoritos</button>
     <button>Perfil</button>
   </footer>
-
-  <!-- Contenedor de alerta personalizada -->
- <div id="registro-alerta">
-  <div class="alerta-contenido">
-    <h2>¡Ya eres parte del universo de Rick and Morty!</h2>
-    <button id="cerrar-alerta">Continuar</button>
-  </div>
-</div>
 
 </body>
 </html>

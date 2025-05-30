@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const userCred = await createUserWithEmailAndPassword(auth, email, password);
-      console.log("Usuario creado:", userCred.user.uid);
 
       await setDoc(doc(db, 'usuarios', userCred.user.uid), {
         nombre,
@@ -46,9 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
         usuario,
         universo
       });
-      console.log("Documento guardado en Firestore");
 
-      alerta.style.display = 'flex';
+      alerta.style.display = 'flex'; // Mostrar alerta
 
       btnCerrar.onclick = () => {
         alerta.style.display = 'none';
