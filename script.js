@@ -1,4 +1,15 @@
 // main.js
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => {
+        console.log('Service Worker registrado:', reg);
+      })
+      .catch(err => {
+        console.log('Error registrando Service Worker:', err);
+      });
+  });
+}
 
 // --- Splash screen ocultar después de 5 segundos ---
 window.addEventListener("load", () => {
