@@ -7,8 +7,7 @@
   <link rel="icon" href="./favicon.ico" />
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" type="module"></script>
-<script src="conexiónfirebase.js" type="module"></script>
-
+  <script src="conexiónfirebase.js" type="module"></script>
 </head>
 <body>
   <!-- Navegación principal -->
@@ -73,7 +72,7 @@
         <input type="email" name="email" placeholder="Correo electrónico" required />
         <input type="password" name="password" placeholder="Contraseña" required />
         <input type="text" name="usuario" placeholder="Nombre de usuario" required />
-          <select name="universo" required>
+        <select name="universo" required>
           <option value="">Elige un universo</option>
           <option value="C-137">C-137</option>
           <option value="C-500A">C-500A</option>
@@ -90,5 +89,17 @@
     <button>Favoritos</button>
     <button>Perfil</button>
   </footer>
+
+  <!-- Contenedor de alerta personalizada -->
+  <div id="registro-alerta" style="display:none; position: fixed; top: 0; left: 0; 
+      width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); 
+      display: flex; justify-content: center; align-items: center; z-index: 10000;">
+    <div class="alerta-contenido" style="background: #222; padding: 20px; border-radius: 10px; color: #fff; max-width: 300px; text-align: center;">
+      <h2>¡Ya eres parte del universo de Rick and Morty!</h2>
+      <button id="cerrar-alerta" style="margin-top: 15px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; background-color: #00ff00; color: #000; font-weight: bold;">
+        Continuar
+      </button>
+    </div>
+  </div>
 </body>
 </html>

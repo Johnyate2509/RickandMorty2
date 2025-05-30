@@ -18,6 +18,8 @@ const db = getFirestore(app);
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('register-form');
+  const alerta = document.getElementById('registro-alerta');
+  const btnCerrarAlerta = document.getElementById('cerrar-alerta');
 
   if (!form) {
     console.warn("Formulario de registro no encontrado.");
@@ -45,11 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
         universo
       });
 
-      alert('¡Ya eres parte del universo de Rick and Morty!');
+      // Mostrar alerta personalizada
+      alerta.style.display = 'flex';
       form.reset();
+
     } catch (error) {
       alert('Error al registrar: ' + error.message);
       console.error(error);
     }
   });
+
+  // Botón para cerrar la alerta
+  if (btnCerrarAlerta) {
+    btnCerrarAlerta.addEventListener('click', () => {
+      alerta.style.display = 'none';
+    });
+  }
 });

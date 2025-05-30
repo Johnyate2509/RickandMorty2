@@ -1,272 +1,314 @@
 /* Estilo general */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1a1a1a;
-    color: #fff;
-    display: flex;
-    flex-direction: column; /* Aseguramos que los elementos se apilen verticalmente */
-    
-    min-height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
-    text-align: center; /* Centra el texto */
-  }
-  
-  /* Navegación principal */
-  #main-nav {
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho de la pantalla */
-    background-color: #333; /* Fondo gris para el menú */
-  }
-  
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Navegación principal */
+#main-nav {
+  width: 100%;
+  background-color: #333;
+}
+
+#main-nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+}
+
+#main-nav ul li {
+  text-align: center;
+}
+
+#main-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+  display: block;
+  width: 100%;
+}
+
+#main-nav ul li a:hover,
+#main-nav ul li a.active {
+  background-color: #00ff00;
+  border-radius: 5px;
+  color: #000;
+}
+
+/* Sección de búsqueda y filtros */
+#search-filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: #222;
+  flex-wrap: wrap;
+}
+
+#search-input,
+#status-filter {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  min-width: 200px;
+}
+
+/* Tarjetas de personajes */
+.card {
+  background-color: #2c2c2c;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+#characters,
+#favorites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Formulario de registro */
+#register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
+}
+
+#register-form input,
+#register-form select,
+#register-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Secciones generales */
+#episodes,
+#locations {
+  padding: 20px;
+}
+
+/* Menú inferior */
+#bottom-menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #111;
+  padding: 10px;
+  z-index: 1000;
+}
+
+#bottom-menu button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#bottom-menu button:hover {
+  color: #00ff00;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
   #main-nav ul {
-    display: flex;
-    justify-content: space-evenly; /* Distribuye los items de manera uniforme */
-    list-style: none;
-    padding: 5px;
-    margin: 0;
+    flex-direction: column;
   }
-  
-  #main-nav ul li {
-    text-align: center; /* Centra los elementos dentro de cada li */
-  }
-  
-  #main-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 5px;
-    display: block; /* Hace que el área clickable ocupe todo el espacio del li */
-    width: 100%; /* Hace que cada enlace ocupe todo el ancho del li */
-  }
-  
-  #main-nav ul li a:hover,
-  #main-nav ul li a.active {
-    background-color: #00ff00;
-    border-radius: 5px;
-    color: #000;
-  }
-  
-  /* Sección de búsqueda y filtros */
-  #search-filter {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 20px;
-    background-color: #222;
-    flex-wrap: wrap;
-  }
-  
-  #search-input,
-  #status-filter {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    min-width: 200px;
-  }
-  
-  /* Tarjetas de personajes */
-  .card {
-    background-color: #2c2c2c;
-    margin: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.2s ease;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card img {
-    width: 100%;
-    border-radius: 10px;
-  }
-  
-  #characters,
-  #favorites {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  /* Formulario de registro */
+
   #register-form {
-    display: flex;
+    width: 90%;
+  }
+
+  #search-filter {
     flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-    max-width: 400px;
-    margin: auto;
   }
-  
-  #register-form input,
-  #register-form select,
-  #register-form button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  /* Secciones generales */
-  #episodes,
-  #locations {
-    padding: 20px;
-  }
-  
-  /* Menú inferior */
-  #bottom-menu {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background-color: #111;
-    padding: 10px;
-    z-index: 1000;
-  }
-  
-  #bottom-menu button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  #bottom-menu button:hover {
-    color: #00ff00;
-  }
-  
-  /* Responsive */
-  @media (max-width: 600px) {
-    #main-nav ul {
-      flex-direction: column;
-    }
-  
-    #register-form {
-      width: 90%;
-    }
-  
-    #search-filter {
-      flex-direction: column;
-    }
-  }
-  
-  .character-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-  
-  .card {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: #fff;
-    text-align: center;
-    color:#000;
-  }
-  
-  .card img {
-    max-width: 100%;
-    border-radius: 0.5rem;
-  }
-  
-  .favorite-btn {
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    background-color: #ffcc00;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-  }
-  
-  .remove-favorite-btn {
-    margin-top: 0.5rem;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    background-color: #fa473a;
-  }
-  
-  /* Estilos para contenedores de episodios y ubicaciones */
-  .episode-list,
-  .location-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  /* Tarjeta de episodio */
-  .episode-card {
-    background-color: #2c2c2c;
-    border-radius: 10px;
-    padding: 15px;
-    max-width: 300px;
-    min-width: 250px;
-    box-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
-    transition: transform 0.2s ease;
-    text-align: left;
-  }
-  
-  .episode-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .episode-card h3 {
-    margin: 0 0 10px;
-    color: #00ff00;
-  }
-  
-  .episode-card p {
-    margin: 5px 0;
-    font-size: 0.95rem;
-  }
-  
-  /* Tarjeta de ubicación */
-  .location-card {
-    background-color: #2c2c2c;
-    border-radius: 10px;
-    padding: 15px;
-    max-width: 300px;
-    min-width: 250px;
-    box-shadow: 0 0 8px rgba(0, 200, 255, 0.3);
-    transition: transform 0.2s ease;
-    text-align: left;
-  }
-  
-  .location-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .location-card h3 {
-    margin: 0 0 10px;
-    color: #00d5ff;
-  }
-  
-  .location-card p {
-    margin: 5px 0;
-    font-size: 0.95rem;
-  }
-  
-  .episode-list,
-  .location-list {
-    color: #2b392b; /* Cambia esto por el color que quieras */
-  }
-  
-  /* Contenedor principal de la página */
-  .content {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Cambiado de 'center' a 'flex-start' para no afectar el menú */
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-  }
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #fff;
+  text-align: center;
+  color: #000;
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
+
+.favorite-btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.remove-favorite-btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: #fa473a;
+}
+
+/* Estilos para contenedores de episodios y ubicaciones */
+.episode-list,
+.location-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Tarjeta de episodio */
+.episode-card {
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 300px;
+  min-width: 250px;
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+  transition: transform 0.2s ease;
+  text-align: left;
+}
+
+.episode-card:hover {
+  transform: scale(1.03);
+}
+
+.episode-card h3 {
+  margin: 0 0 10px;
+  color: #00ff00;
+}
+
+.episode-card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+/* Tarjeta de ubicación */
+.location-card {
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 300px;
+  min-width: 250px;
+  box-shadow: 0 0 8px rgba(0, 200, 255, 0.3);
+  transition: transform 0.2s ease;
+  text-align: left;
+}
+
+.location-card:hover {
+  transform: scale(1.03);
+}
+
+.location-card h3 {
+  margin: 0 0 10px;
+  color: #00d5ff;
+}
+
+.location-card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.episode-list,
+.location-list {
+  color: #2b392b;
+}
+
+/* Contenedor principal de la página */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* -------- ALERTA PERSONALIZADA -------- */
+#registro-alerta {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* Fondo transparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.alerta-contenido {
+  background: #fff;
+  color: #000;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+}
+
+.alerta-contenido h2 {
+  margin-bottom: 1rem;
+}
+
+.alerta-contenido button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #00ff00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.alerta-contenido button:hover {
+  background-color: #00cc00;
+}
