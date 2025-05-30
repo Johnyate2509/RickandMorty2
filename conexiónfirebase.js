@@ -3,12 +3,12 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBCJXeinurb2klueon_QMpwanb8uMy7s1E",
-  authDomain: "rickandmorty-a77e9.firebaseapp.com",
-  projectId: "rickandmorty-a77e9",
-  storageBucket: "rickandmorty-a77e9.appspot.com", // corregido
-  messagingSenderId: "996378141670",
-  appId: "1:996378141670:web:f441b528bb30766e1f6c27"
+  apiKey: "AIzaSyBjPXZz-P-p72J815hM02am4AbvtfGf5z0",
+  authDomain: "rickandmorty2-37c3b.firebaseapp.com",
+  projectId: "rickandmorty2-37c3b",
+  storageBucket: "rickandmorty2-37c3b.firebasestorage.app",
+  messagingSenderId: "1095794527785",
+  appId: "1:1095794527785:web:87b01039813bc2ff161638"
 };
 
 const app = initializeApp(firebaseConfig);
