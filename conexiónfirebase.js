@@ -46,7 +46,7 @@ registerForm.addEventListener('submit', async (e) => {
       creadoEn: new Date()
     });
 
-    alert('¡Usuario registrado con éxito!');
+    alert('¡Ya eres parte del universo de Rick and Morty!');
     registerForm.reset();
   } catch (error) {
     console.error('Error en el registro:', error);
