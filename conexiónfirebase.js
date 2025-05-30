@@ -1,4 +1,20 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBjPXZz-P-p72J815hM02am4AbvtfGf5z0",
+  authDomain: "rickandmorty2-37c3b.firebaseapp.com",
+  projectId: "rickandmorty2-37c3b",
+  storageBucket: "rickandmorty2-37c3b.firebasestorage.app",
+  messagingSenderId: "1095794527785",
+  appId: "1:1095794527785:web:87b01039813bc2ff161638"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('register-form');
   const alerta = document.getElementById('registro-alerta');
@@ -8,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.warn("Formulario de registro no encontrado.");
     return;
   }
-
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -31,10 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
         universo
       });
 
-      // En vez de alert(), mostramos el modal:
-      alerta.style.display = 'flex';
+      alerta.style.display = 'flex'; // Mostrar alerta
 
-      // Reseteamos el formulario solo cuando cierre la alerta:
       btnCerrar.onclick = () => {
         alerta.style.display = 'none';
         form.reset();
@@ -45,10 +58,4 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error(error);
     }
   });
-// Mostrar alerta
-alerta.classList.add('active');
-
-// Ocultar alerta
-alerta.classList.remove('active');
-
 });
