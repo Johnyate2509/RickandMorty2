@@ -1,5 +1,4 @@
-// conexiónfirebase.js o script.js
-
+// conexiónfirebase.js
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
@@ -19,13 +18,15 @@ const db = getFirestore(app);
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('register-form');
+
   if (!form) {
-    console.warn('❗ No se encontró el formulario');
+    console.warn("Formulario de registro no encontrado.");
     return;
   }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const nombre = form.nombre.value;
     const apellido = form.apellido.value;
     const email = form.email.value;
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const userCred = await createUserWithEmailAndPassword(auth, email, password);
+
       await setDoc(doc(db, 'usuarios', userCred.user.uid), {
         nombre,
         apellido,
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('¡Ya eres parte del universo de Rick and Morty!');
       form.reset();
     } catch (error) {
-      alert('Error: ' + error.message);
+      alert('Error al registrar: ' + error.message);
       console.error(error);
     }
   });
